@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { useAppContext } from "./context/AppContext"
+import SetupForm from "./components/SetupForm"
+import QuizCard from "./components/QuizCard"
 
-function App() {
+
+const App = () => {
+  const {waiting,loading,questions,index,correct}=useAppContext()
+
+  if(waiting){
+    return <SetupForm/>
+  }
+  if(loading){
+    return (
+    <h1 className="text-5xl font-bold absolute top-10 left-[50%] translate-x-[-50%]">LOADING...</h1>
+  )
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <QuizCard item={questions[index]}/>
+  )
+  
 }
 
-export default App;
+export default App
