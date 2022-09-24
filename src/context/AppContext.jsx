@@ -31,7 +31,6 @@ const AppContextProvider = ({children}) => {
     const [amount,setAmount]=useState(5)
     const [category,setCategory]=useState("history")
     const [difficulty,setDifficulty]=useState("medium")
-    const [correctAnswerList]=useState([])
 
     const url=`https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}&category=${categoryList[category]}&type=multiple`
 
@@ -82,8 +81,9 @@ const AppContextProvider = ({children}) => {
         e.preventDefault()
         getQuestions(url)
     }
-    questions.map((item)=>correctAnswerList.push(item.correct_answer))
-    // console.log(correctAnswerList)
+
+    let correctAnswerList=[...questions.map((item)=>(item.correct_answer))]
+
   return (
     <AppContext.Provider value={{waiting,setWaiting,loading,questions,index,correct,setCorrect,isModalOpen,setIsModalOpen,nextQuestion,checkAnswer,amount,setAmount,category,setCategory,difficulty,setDifficulty,handleSubmit,correctAnswerList}}>
         {children}

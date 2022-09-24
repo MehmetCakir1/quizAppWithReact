@@ -38,7 +38,7 @@ const SetupForm = () => {
       </div>
       <button className='bg-red-400 py-2 px-16 sm:px-28 rounded-lg mt-4 text-3xl' onClick={handleSubmit}>START</button>
     </div>
-    <img src="images/trivia.webp" alt="trivia"  className='absolute left-0 top-0 w-full opacity-90'/>
+    <img src="images/trivia.webp" alt="trivia"  className='absolute left-0 top-0 w-full h-full object-cover opacity-90'/>
     </>
   
   )
