@@ -21,7 +21,7 @@ const QuizCard = ({item}) => {
             <button key={index}
             onClick={()=>checkAnswer(correct_answer===item)}
             dangerouslySetInnerHTML={{__html:item}}
-            className="block w-[70%] max-w-[35rem] my-2 p-1 rounded-lg bg-blue-500 font-semibold hover:opacity-60"
+            className="block w-[70%] max-w-[35rem] my-2 p-1 rounded-lg bg-blue-500 font-semibold sm:hover:opacity-60"
             />
           ) 
         })}
